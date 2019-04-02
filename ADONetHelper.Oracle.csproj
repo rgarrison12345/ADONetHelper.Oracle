@@ -9,7 +9,7 @@
     <RepositoryUrl>https://github.com/rgarrison12345/ADONetHelper.Oracle.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-    <Version>1.5.5</Version>
+    <Version>1.5.6</Version>
     <PackageTags>Oracle Oracle.ManagedDataAccess Oracle.ManagedDataAccess.Core ORM ADO.NET ADO SQL .NET Database RDBMS Generic DAL ANSI</PackageTags>
     <Authors>Robert Garrison</Authors>
     <Company>Robert Garrison</Company>
@@ -19,7 +19,7 @@
     <IncludeSource>true</IncludeSource>
     <IncludeSymbols>true</IncludeSymbols>
     <Description>Extends ADONetHelper library to Oracle</Description>
-    <PackageReleaseNotes>Updating to ADONetHelper 3.1.2</PackageReleaseNotes>
+    <PackageReleaseNotes>Updating to ADONetHelper 3.2.1 and Oracle.ManagedDataAccess 18.6.0 and Oracle.ManagedDataAccess.Core 2.18.6</PackageReleaseNotes>
     <AssemblyName>ADONetHelper.Oracle</AssemblyName>
     <RootNamespace>ADONetHelper.Oracle</RootNamespace>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\ADONetHelper.Oracle.xml</DocumentationFile>
@@ -30,13 +30,13 @@
   </PropertyGroup>
   <ItemGroup>
     <None Include="LICENSE.md" Pack="true" PackagePath="LICENSE.md" />
-    <PackageReference Include="ADONetHelper" version="3.1.2" />
+    <PackageReference Include="ADONetHelper" version="3.2.1" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)'=='net40'">
-    <PackageReference Include="Oracle.ManagedDataAccess" Version="18.3.0" />
+    <PackageReference Include="Oracle.ManagedDataAccess" Version="18.6.0" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
-    <PackageReference Include="Oracle.ManagedDataAccess.Core" Version="2.18.3" />
+    <PackageReference Include="Oracle.ManagedDataAccess.Core" Version="2.18.6" />
   </ItemGroup>
   <PropertyGroup Condition="'$(Configuration)'=='Debug'">
     <DebugSymbols>true</DebugSymbols>

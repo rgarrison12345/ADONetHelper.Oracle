@@ -126,7 +126,9 @@ namespace ADONetHelper.Oracle
             }
         }
         /// <summary>
-        /// 
+        /// This property applies to pluggable database connections. Upon an <see cref="OracleConnection.Open"/>, if the connection returned from the pool had to change its service name (ServiceName) 
+        /// or pluggable database (PDBName) in order to connect to the desired pluggable database, then the connection is considered switched. Thus, SwitchedConnection will then return TRUE. 
+        /// In all other cases, it will return FALSE.
         /// </summary>
         /// <returns></returns>
         public bool SwitchedConnection
