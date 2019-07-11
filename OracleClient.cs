@@ -1,6 +1,6 @@
 ﻿#region Licenses
 /*MIT License
-Copyright(c) 2018
+Copyright(c) 2019
 Robert Garrison
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -265,11 +265,11 @@ namespace ADONetHelper.Oracle
             }
         }
         /// <summary>
-        /// 
+        /// This method executes a command using the  <see cref="OracleXmlCommandType"/> and <see cref="CommandType"/> properties and returns the result as an XML document in a new <see cref="Stream"/> object.
         /// </summary>
-        /// <param name="query"></param>
-        /// <param name="commandType"></param>
-        /// <returns></returns>
+        /// <param name="query">The query to execute as a <see cref="string"/></param>
+        /// <param name="commandType">The <see cref="CommandType"/> that will determine how the <see cref="OracleCommand"/> will interpret the <paramref name="query"/></param>
+        /// <returns>Returns an instance of <see cref="Stream"/> that is an XML Document</returns>
         public Stream ExecuteStream(string query, OracleXmlCommandType commandType)
         {
             //Wrap this in a using statement to automatically dispose of resources
@@ -288,12 +288,12 @@ namespace ADONetHelper.Oracle
             }
         }
         /// <summary>
-        /// 
+        /// This method executes a command using the <see cref="OracleXmlCommandType"/> <paramref name="query"/> properties and appends the result as an XML document to the existing Stream provided by the application.
         /// </summary>
-        /// <param name="query"></param>
-        /// <param name="outputStream"></param>
-        /// <param name="commandType"></param>
-        /// <returns></returns>
+        /// <param name="query">The query to execute as a <see cref="string"/></param>
+        /// <param name="commandType">The <see cref="CommandType"/> that will determine how the <see cref="OracleCommand"/> will interpret the <paramref name="query"/></param>
+        /// <param name="outputStream">An instance of <see cref="Stream"/> that will have appended to it an XML Document</param>
+        /// <returns>Returns an XML Document that is appended to the passed in <paramref name="outputStream"/></returns>
         public void ExecuteToStream(string query, Stream outputStream, OracleXmlCommandType commandType)
         {
             //Wrap this in a using statement to automatically dispose of resources
