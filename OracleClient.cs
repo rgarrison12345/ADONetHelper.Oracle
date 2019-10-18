@@ -80,7 +80,7 @@ namespace ADONetHelper.Oracle
             set
             {
                 //Set the value
-                this.Connection.ActionName = value;
+                Connection.ActionName = value;
             }
         }
         /// <summary>
@@ -94,7 +94,7 @@ namespace ADONetHelper.Oracle
             get
             {
                 //Return this back to the caller
-                return this.Connection.DatabaseDomainName;
+                return Connection.DatabaseDomainName;
             }
         }
         /// <summary>
@@ -106,7 +106,7 @@ namespace ADONetHelper.Oracle
             get
             {
                 //Return this back to the caller
-                return this.Connection.StatementCacheSize;
+                return Connection.StatementCacheSize;
             }
         }
         /// <summary>
@@ -118,11 +118,11 @@ namespace ADONetHelper.Oracle
             get
             {
                 //Return this back to the caller
-                return this.Connection.ServiceName;
+                return Connection.ServiceName;
             }
             set
             {
-                this.Connection.ServiceName = value;
+                Connection.ServiceName = value;
             }
         }
         /// <summary>
@@ -136,7 +136,7 @@ namespace ADONetHelper.Oracle
             get
             {
                 //Return this back to the caller
-                return this.Connection.SwitchedConnection;
+                return Connection.SwitchedConnection;
             }
         }
         /// <summary>
@@ -148,7 +148,7 @@ namespace ADONetHelper.Oracle
             get
             {
                 //Return this back to the caller
-                return this.Connection.HostName;
+                return Connection.HostName;
             }
         }
         /// <summary>
@@ -159,7 +159,7 @@ namespace ADONetHelper.Oracle
         {
             set
             {
-                this.Connection.ModuleName = value;
+                Connection.ModuleName = value;
             }
         }
         /// <summary>
@@ -171,7 +171,7 @@ namespace ADONetHelper.Oracle
             get
             {
                 //Return this back to the caller
-                return this.Connection.InstanceName;
+                return Connection.InstanceName;
             }
         }
         /// <summary>
@@ -185,11 +185,44 @@ namespace ADONetHelper.Oracle
             get
             {
                 //Return this back to the caller
-                return this.Connection.PDBName;
+                return Connection.PDBName;
             }
             set
             {
-                this.Connection.PDBName = value;
+                Connection.PDBName = value;
+            }
+        }
+        /// <summary>
+        /// Sets the client identifier.
+        /// </summary>
+        /// <value>
+        /// The client identifier.
+        /// </value>
+        /// <remarks>Setting ClientId to null resets the client identifier for the connection.Setting ClientId to an empty string sets the client identifier for the connection to an 
+        /// empty string. ClientId is set to null when the Close method is called on the OracleConnection object.
+        /// </remarks>
+        public string ClientID
+        {
+            set
+            {
+                Connection.ClientId = value;
+            }
+        }
+        /// <summary>
+        /// Gets or sets the wallet location.
+        /// </summary>
+        /// <value>
+        /// The wallet location.
+        /// </value>
+        public string WalletLocation
+        {
+            get
+            {
+                return Connection.WalletLocation;
+            }
+            set
+            {
+                Connection.WalletLocation = value;
             }
         }
         /// <summary>
@@ -201,7 +234,7 @@ namespace ADONetHelper.Oracle
             get
             {
                 //Return this back to the caller
-                return (OracleConnection)this.ExecuteSQL.Connection;
+                return (OracleConnection)ExecuteSQL.Connection;
             }
         }
         #endregion
@@ -273,7 +306,7 @@ namespace ADONetHelper.Oracle
         public Stream ExecuteStream(string query, OracleXmlCommandType commandType)
         {
             //Wrap this in a using statement to automatically dispose of resources
-            using (OracleCommand command = (OracleCommand)this.ExecuteSQL.Factory.GetDbCommand(this.QueryCommandType, query, this.ExecuteSQL.Parameters, this.Connection, this.CommandTimeout))
+            using (OracleCommand command = (OracleCommand)ExecuteSQL.Factory.GetDbCommand(QueryCommandType, query, ExecuteSQL.Parameters, Connection, CommandTimeout))
             {
                 command.XmlCommandType = commandType;
 
@@ -297,7 +330,7 @@ namespace ADONetHelper.Oracle
         public void ExecuteToStream(string query, Stream outputStream, OracleXmlCommandType commandType)
         {
             //Wrap this in a using statement to automatically dispose of resources
-            using (OracleCommand command = (OracleCommand)this.ExecuteSQL.Factory.GetDbCommand(this.QueryCommandType, query, this.ExecuteSQL.Parameters, this.Connection, this.CommandTimeout))
+            using (OracleCommand command = (OracleCommand)ExecuteSQL.Factory.GetDbCommand(QueryCommandType, query, ExecuteSQL.Parameters, Connection, CommandTimeout))
             {
                 command.XmlCommandType = commandType;
 
@@ -329,10 +362,10 @@ namespace ADONetHelper.Oracle
         public void OpenConnectionWithNewPassowrd(SecureString password)
         {
             //Have to close the connection first
-            this.Close();
+            Close();
 
             //Try and reopen the connection with a new password
-            this.Connection.OpenWithNewPassword(password);
+            Connection.OpenWithNewPassword(password);
         }
         /// <summary>
         /// This method returns a new instance of the <see cref="OracleGlobalization"/> object that represents the globalization settings of the session.
@@ -341,7 +374,7 @@ namespace ADONetHelper.Oracle
         public OracleGlobalization GetSessionInfo()
         {
             //Return this back to the caller
-            return this.Connection.GetSessionInfo();
+            return Connection.GetSessionInfo();
         }
         /// <summary>
         /// This method refreshes the provided <see cref="OracleGlobalization"/> object with the globalization settings of the session.
@@ -349,7 +382,7 @@ namespace ADONetHelper.Oracle
         public void GetSessionInfo(OracleGlobalization globe)
         {
             //Return this back to the caller
-            this.Connection.GetSessionInfo(globe);
+            Connection.GetSessionInfo(globe);
         }
         /// <summary>
         /// This method flushes the statement cache by closing all open cursors on the database, when statement caching is enabled.
@@ -361,7 +394,7 @@ namespace ADONetHelper.Oracle
         /// </remarks>
         public void PurgeStatementCache()
         {
-            this.Connection.PurgeStatementCache();
+            Connection.PurgeStatementCache();
         }
         /// <summary>
         /// This method alters the session's globalization settings with all the property values specified in the provided OracleGlobalization object..
@@ -370,7 +403,7 @@ namespace ADONetHelper.Oracle
         public void SetSessionInfo(OracleGlobalization globe)
         {
             //Return this back to the caller
-            this.Connection.SetSessionInfo(globe);
+            Connection.SetSessionInfo(globe);
         }
         #endregion
     }
