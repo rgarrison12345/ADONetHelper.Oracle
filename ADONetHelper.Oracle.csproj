@@ -3,12 +3,12 @@
     <TargetFrameworks>netstandard2.0;</TargetFrameworks>
     <EnableDefaultCompileItems>true</EnableDefaultCompileItems>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Copyright>Copyright © Robert Garrison 2019</Copyright>
+    <Copyright>Copyright © Robert Garrison 2020</Copyright>
     <PackageProjectUrl>https://github.com/rgarrison12345/ADONetHelper.Oracle</PackageProjectUrl>
     <RepositoryUrl>https://github.com/rgarrison12345/ADONetHelper.Oracle.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-    <Version>1.8.0</Version>
+    <Version>1.9.0</Version>
     <PackageTags>Oracle Oracle.ManagedDataAccess Oracle.ManagedDataAccess.Core ORM ADO.NET ADO SQL .NET Database RDBMS Generic DAL ANSI</PackageTags>
     <Authors>Robert Garrison</Authors>
     <Company>Robert Garrison</Company>
@@ -18,7 +18,7 @@
     <IncludeSource>true</IncludeSource>
     <IncludeSymbols>true</IncludeSymbols>
     <Description>Extends ADONetHelper library to Oracle</Description>
-    <PackageReleaseNotes>Updating to Oracle.ManagedDataAccess.Core 2.19.60 and ADONetHelper 4.0.0</PackageReleaseNotes>
+    <PackageReleaseNotes>Updating to ADONetHelper 4.1.1</PackageReleaseNotes>
     <AssemblyName>ADONetHelper.Oracle</AssemblyName>
     <RootNamespace>ADONetHelper.Oracle</RootNamespace>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\ADONetHelper.Oracle.xml</DocumentationFile>
@@ -27,10 +27,12 @@
     <Prefer32Bit>false</Prefer32Bit>
     <OutputType>Library</OutputType>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+    <PackageIconUrl>icon.png</PackageIconUrl>
   </PropertyGroup>
   <ItemGroup>
     <None Include="LICENSE.md" Pack="true" PackagePath="LICENSE.md" />
-    <PackageReference Include="ADONetHelper" version="4.0.0" />
+    <None Include="icon.png" Pack="true" PackagePath="icon.png" />
+    <PackageReference Include="ADONetHelper" version="4.1.1" />
     <PackageReference Include="Oracle.ManagedDataAccess.Core" Version="2.19.60" />
   </ItemGroup>
   <PropertyGroup Condition="'$(Configuration)'=='Debug'">
